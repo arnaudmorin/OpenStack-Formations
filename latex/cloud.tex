@@ -5,12 +5,13 @@
   \begin{frame}
     \frametitle{Le cloud, c'est large !}
     \begin{itemize}
-      \item Stockage/calcul distant \pause (on oublie, cf. externalisation)\pause
+      \item Stockage \pause
+      \item Calcul \pause
       \item Virtualisation++\pause
-      \item Abstraction du matériel (voire plus)\pause
-      \item Accès normalisé par des APIs\pause
+      \item Abstraction du matériel\pause
+      \item \alert<8->{Accès normalisé par des APIs}\pause
       \item Service et facturation à la demande\pause
-      \item Flexibilité, élasticité
+      \item \alert<9->{Flexibilité, élasticité}
     \end{itemize}
   \end{frame}
 
@@ -29,8 +30,9 @@
       \begin{itemize}
         \item Database as a Service
         \item Network as a Service
+        \item Firewall as a Service
         \item Load balancing as a Service\pause
-        \item \$APPLICATION as a Service
+        \item Whatever as a Service
       \end{itemize}
     \end{itemize}
   \end{frame}
@@ -38,14 +40,14 @@
   \begin{frame}
     \frametitle{Cloud public ou cloud privé ?}
     \begin{description}
-      \item[Public] fourni par un hébergeur à des clients (AWS, Rackspace Cloud, etc.)
+      \item[Public] fourni par un hébergeur à des clients (AWS, Rackspace Cloud, Azure, etc.)
       \item[Privé] plateforme et ressources internes
       \item[Hybride] utilisation de ressources publiques au sein d'un cloud privé
     \end{description}
   \end{frame}
 
   \begin{frame}
-    \frametitle{Le cloud en un schéma}
+    \frametitle{Les modèles cloud en un schéma}
     \includegraphics[width=\linewidth,height=\textheight]{images/cloud.png}
   \end{frame}
 
@@ -62,8 +64,8 @@
     \frametitle{Pourquoi du cloud ? Côté technique}
     \begin{itemize}
       \item Abstraction des couches plus basses
-      \item On peut tout programmer à son gré
-      \item Permet la mise en place d'architectures scalables
+      \item On peut tout programmer à son gré (tout est API!)
+      \item Permet la mise en place d'architectures scalables (en théorie)
     \end{itemize}
   \end{frame}
 
@@ -84,7 +86,9 @@
     \begin{itemize}
       \item Amazon OpsWork / Elastic Beanstalk
       \item Google App Engine
-      \item Heroku
+      \item Heroku \pause
+      \item OVH (Lamp Stack et Ruby Stack pour developpeurs)\\
+      \url{http://www.ovh.com/fr/vps/systeme-exploitation.xml}
     \end{itemize}
   \end{frame}
 
@@ -92,7 +96,7 @@
     \frametitle{Solutions de PaaS privé}
     \begin{itemize}
       \item Cloud Foundry
-      \item OpenShift (Red Hat)\pause
+      \item OpenShift (Red Hat)
       \item Solum
     \end{itemize}
   \end{frame}
@@ -104,16 +108,16 @@
     \begin{itemize}
       \item Service (cloud public) : \textcolor{blue}{AWS}
       \begin{itemize}
-        \item Pionnier du genre (dès 2002)\pause
+        \item Pionnier du genre (dès 2002)
         \item Elastic Compute Cloud (\textcolor{blue}{EC2})
-        \item Elastic Block Storage (\textcolor{blue}{EBS})\pause
-        \item Simple Storage Service (\textcolor{blue}{S3})\pause
+        \item Elastic Block Storage (\textcolor{blue}{EBS})
+        \item Simple Storage Service (\textcolor{blue}{S3})
       \end{itemize}
         \item Logiciels libres permettant le déploiement d'un cloud privé :
       \begin{itemize}
         \item Eucalyptus
         \item CloudStack
-        \item OpenNebula\pause
+        \item OpenNebula
         \item \textbf{OpenStack}
       \end{itemize}
     \end{itemize}
@@ -122,14 +126,15 @@
   \begin{frame}
     \frametitle{Les clouds publics concurrents d'AWS}
     \begin{itemize}
-      \item Google Compute Platform
-      \item \textbf<3->{Rackspace}
-      \item \textbf<3->{HP Cloud}\pause
+      \item Google Compute Engine
+      \item Rackspace
+      \item HP Cloud
+      \item Microsoft Azure
       \item En France
       \begin{itemize}
-        \item \textbf<3->{Cloudwatt}
-        \item \textbf<3->{Numergy}
-        \item \textbf<3->{Outscale}
+        \item \textbf{Cloudwatt}
+        \item \textbf{Numergy}
+        \item \textbf{Outscale}
       \end{itemize}
     \end{itemize}
   \end{frame}
@@ -159,6 +164,18 @@
       \item API REST\pause
       \item API de metadata et user data
       \item Cloud-init
+      \note{{\tiny Image : Photo d'une machine virtuelle contenant les informations nécessaires pour lancer une instance. Contient généralement un OS et/ou des applications. C'est un genre de template.\\}}
+      \note{{\tiny Instance : Une machine virtuelle lancée depuis une Image. On peut lancer plusieurs instances depuis la même image.\\}}
+      \note{{\tiny Flavors : Type d'instance prédéfini, détermine par exemple CPU et RAM. Utile pour positionner l'instance au bon endroit dans le datacenter.\\}}
+      \note{{\tiny Volumes : Disque dur associé à une instance.\\}}
+      \note{{\tiny Stockage block : Type de stockage utilisé pour les volumes.\\}}
+      \note{{\tiny Stockage objet : Type de stockage utilisé pour les images ou tout autre fichier.\\}}
+      \note{{\tiny Floating IP : IP publique NATée attribuée à une machine\\}}
+      \note{{\tiny Groupe de sécurité : Règles d'accès aux machines\\}}
+      \note{{\tiny Paire de clés : clef SSH\\}}
+      \note{{\tiny API REST : Interface de programmation de type Representational State Transfer. En gros, architecture de communication client-serveur, avec interfaces uniforme, gestion de ressources, \\}}
+      \note{{\tiny API metadata et userdata : API permettant d'accèder à des données pour configurer et gérer une VM (ex : récuperer l'adresse d'ip de la machine\\}}
+      \note{{\tiny Cloud-init : Ensemble d'outils permettant de faciliter l'initialisation de machines virtuelles dans un cloud\\}}
     \end{itemize}
   \end{frame}
 
@@ -191,6 +208,8 @@
       \item Accès à des raw devices type \textit{/dev/vdb}
       \item Possibilité d'utiliser n'importe quel système de fichiers
       \item Compatible avec toutes les applications legacy
+      \item Technos : iSCSI, Fiber Channel, FCoE
+      \note{Samba, NFS, CIFS sont pas des block storage, mais des file storage}
     \end{itemize}
   \end{frame}
 
@@ -228,6 +247,11 @@
       \item Les deux sont du SDS
       \item Théorème CAP : on en choisit deux
     \end{itemize}
+    \begin{description}[Partition Tolerance]
+        \item[Consistancy] Tous les noeuds du système voient exactement les mêmes données au même moment
+        \item[Availability] Toutes les requêtes doivent reçevoir une réponse
+        \item[Partition Tolerance] En cas de morcellement en sous-réseaux, chacun doit pouvoir fonctionner de manière autonome
+    \end{description}
   \end{frame}
 
   \begin{frame}
@@ -242,6 +266,7 @@
       \item Le projet est né chez Rackspace avant la création d'OpenStack
       \item Swift est en production chez Rackspace depuis lors
       \item C'est le composant le plus mature d'OpenStack
+      \item Théorème CAP : AP
     \end{itemize}
   \end{frame}
 
@@ -251,13 +276,17 @@
       \item Projet totalement parallèle à OpenStack
       \item Supporté par une entreprise (Inktank) récemment rachetée par Red Hat
       \item Fournit d'abord du stockage objet
-      \item L'accès aux données se fait via RADOS :
+      \item L'accès aux données se fait via RADOS : 
+      \note{RADOS: reliable autonomic distributed object store\\}
       \begin{itemize}
         \item Accès direct depuis une application avec librados
         \item Accès via une API REST grâce à radosgw
       \end{itemize}
       \item La couche RBD permet d'accéder aux données en mode block (volumes)
+      \note{RBD: RADOS Block Device\\}
       \item CephFS permet un accès par un système de fichiers POSIX
+      \note{CephFS peut être monté par linux avec mount.ceph\\}
+      \item Théorème CAP : CP
     \end{itemize}
   \end{frame}
 
@@ -270,6 +299,28 @@
       \item Être en capacité d'instancier une infrastructure entière en un appel API
       \item Adapter ses ressources en fonction de ses besoins en temps réel (autoscaling)
     \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Exemples d'orchestration}
+    \begin{itemize}
+      \item Amazon CloudFormation
+      \item OpenStack Heat
+      \item Microsoft Azure Automation
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}[containsverbatim]
+    \frametitle{Exemples d'orchestration}
+\begin{verbatim}
+resources:
+  my_instance:
+    type: AWS::EC2::Instance
+    properties:
+      KeyName: { get_param: KeyName }
+      ImageId: { get_param: ImageId }
+      InstanceType: { get_param: InstanceType }
+\end{verbatim}
   \end{frame}
 
   \subsection[APIs]{APIs : quel rôle ?}

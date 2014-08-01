@@ -3,16 +3,28 @@
 \usepackage{xparse}
 \usepackage{microtype}
 \usepackage{verbatim}
+\usepackage[french]{babel}
+%\usepackage{listings,xcolor}
 
 \usetheme{Boadilla}
 
 \title{Formation OpenStack}
-%\author{Adrien Cunin}
-%\institute{Osones}
-%\date{}
+\author{Arnaud Morin}
+\institute{Orange Labs}
+\date{}
 
-%\logo{\includegraphics[height=0.5cm]{images/logo-osones.png}}
+% Pour compiler et tester plus vite
+%\usepackage[20-30]{pagesel}
 
+% Logo entreprise
+\logo{\includegraphics[height=0.6cm]{images/orange.jpg}}
+
+% Couleurs personnalisées
+\definecolor{orange}{HTML}{FF6600}
+\usecolortheme[named=orange]{structure}
+\setbeamertemplate{itemize item}{\textbullet} % des ronds simples pour le 1er niveau des listes
+
+%%%%% Debut doc
 \begin{document}
   \begin{frame}
     \titlepage
@@ -23,21 +35,43 @@
 
   \begin{frame}
     \frametitle{Concernant ces supports de cours}
-    Supports de cours OpenStack réalisés par Osones (\url{https://osones.com/})\\
-    Auteurs :
+    Auteurs initiaux :
     \begin{itemize}
-      \item Adrien Cunin \textless adrien.cunin@osones.com\textgreater
+      \item Adrien Cunin \textless adrien.cunin@osones.com\textgreater 
+        \begin{minipage}[c]{1.5cm}
+          \includegraphics[height=0.4cm]{images/logo-osones.png}
+        \end{minipage}
       \item Pierre Freund \textless pierre.freund@osones.com\textgreater
+        \begin{minipage}[c]{1.5cm}
+          \includegraphics[height=0.4cm]{images/logo-osones.png}
+        \end{minipage}
     \end{itemize}
-    \begin{center}
-      \includegraphics[height=0.5cm]{images/logo-osones.png}
-    \end{center}
+    
+    \vspace{0.3cm}
+    Modifiés et adaptés par :
+    \begin{itemize}
+      \item Arnaud Morin \textless arnaud1.morin@orange.com\textgreater
+        \begin{minipage}[c]{1.5cm}
+          \includegraphics[height=0.6cm]{images/orange.jpg}
+        \end{minipage}
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    Licence
     \begin{itemize}
       \item Copyright \copyright{2014 Osones}
-      \item Licence : Creative Commons BY-SA 4.0 \\
-        \includegraphics{images/licence.png} \\
+      \item Creative Commons BY-SA 4.0 
+        \begin{minipage}[c]{3cm}
+          \includegraphics[height=0.4cm]{images/licence.png} 
+        \end{minipage}\\
         \url{https://creativecommons.org/licenses/by-sa/4.0/deed.fr}
-      \item Sources : \url{https://github.com/Osones/OpenStack-Formations/}
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    Sources
+    \begin{itemize}
+      \item \url{https://github.com/Osones/OpenStack-Formations/}
+      \item \url{https://github.com/arnaudmorinol/OpenStack-Formations/}
     \end{itemize}
   \end{frame}
 

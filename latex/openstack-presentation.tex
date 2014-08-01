@@ -33,17 +33,17 @@
   \begin{frame}
     \frametitle{Quelques soutiens/contributeurs ...}
     \begin{itemize}
-      \item \textcolor{blue}{Rackspace} et la NASA\pause
-      \item \textcolor{blue}{Canonical}
-      \item \textcolor{blue}{Red Hat}
-      \item \textcolor{blue}{Suse}\pause
-      \item \textcolor{blue}{HP}
-      \item \textcolor{blue}{IBM}
-      \item \textcolor{cyan}{Dell}, \textcolor{cyan}{Intel}
-      \item \textcolor{cyan}{Cisco}, \textcolor{cyan}{Juniper}\pause
-      \item \textcolor{cyan}{NetApp}, \textcolor{cyan}{VMWare}\pause
-      \item \textcolor{cyan}{Yahoo}, Bull\pause
-      \item Mais aussi : Mirantis, StackOps, \textcolor{cyan}{eNovance}\pause
+      \item Rackspace et la NASA\pause
+      \item Canonical
+      \item Red Hat
+      \item Suse\pause
+      \item HP
+      \item IBM
+      \item Dell, Intel\pause
+      \item Cisco, Juniper\pause
+      \item NetApp, VMWare\pause
+      \item Yahoo, Bull\pause
+      \item Mais aussi : Mirantis, StackOps, \alert{eNovance}\pause
     \end{itemize}
     \url{http://www.openstack.org/foundation/companies/}
   \end{frame}
@@ -110,6 +110,7 @@
   \begin{frame}
     \frametitle{Les projets dans Icehouse}
     \includegraphics[width=\textwidth]{images/innovation2.pdf}
+    \note{Supporting programs: Gerrit, Jenkins}
   \end{frame}
 
   \begin{frame}
@@ -142,9 +143,13 @@
     \frametitle{Développement du projet}
     \begin{itemize}
       \item Open Source
+      \note{Licence Apache 2}
       \item Open Design
+      \note{Tout le monde peut proposer des blueprints}
       \item Open Development
+      \note{Tout le monde peut proposer des patchs, review}
       \item Open Community
+      \note{Tout le monde peut participer}
     \end{itemize}
   \end{frame}
 
@@ -242,17 +247,19 @@
     \includegraphics[width=\textwidth]{images/photo-summit2.jpg}
   \end{frame}
   \begin{frame}
-    \frametitle{Design Tenets}
-    \begin{enumerate}
+    \frametitle{Principes de conceptions}
+    \url{https://wiki.openstack.org/wiki/BasicDesignTenets}
+    \begin{itemize}
       \item Scalability and elasticity are our main goals
       \item Any feature that limits our main goals must be optional
       \item Everything should be asynchronous. If you can't do something asynchronously, see \#2
       \item All required components must be horizontally scalable
       \item Always use shared nothing architecture (SN) or sharding. If you can't Share nothing/shard, see \#2
+      \note{Shared Nothing: \url{http://en.wikipedia.org/wiki/Shared_nothing_architecture} : en gros, pas de SPOF}
       \item Distribute everything. Especially logic. Move logic to where state naturally exists.
       \item Accept eventual consistency and use it where it is appropriate.
       \item Test everything. We require tests with submitted code. (We will help you if you need it)
-    \end{enumerate}
+    \end{itemize}
   \end{frame}
 
   \begin{frame}
