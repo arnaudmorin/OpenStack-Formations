@@ -1,12 +1,13 @@
 Supports de formation OpenStack
 ===============================
 
-Supports de formation (sous forme de slides) sur OpenStack écrits en Français et réalisés par Osones (https://osones.com/).
-Sont notamment abordés les sujets suivants : le cloud, le projet OpenStack, l'utilisation d'OpenStack, le déploiement d'OpenStack, et les manières de tirer partie d'une infrastructure IaaS.
+Supports de formation (sous forme de slides) sur OpenStack écrits en Français et réalisés par Osones (https://osones.com/) et modifiés par Arnaud Morin.
+Sont notamment abordés les sujets suivants : la virtualisation de serveur, le cloud, le projet OpenStack, l'utilisation d'OpenStack, le déploiement d'OpenStack, et les manières de tirer partie d'une infrastructure IaaS.
 
 Auteurs :
 * Adrien Cunin <adrien.cunin@osones.com>
 * Pierre Freund <pierre.freund@osones.com>
+* Arnaud Morin <arnaud1.morin@orange.com>
 
 Installation de LaTeX (Ubuntu)
 ------------------------------
@@ -23,6 +24,10 @@ Tous :
 Un style (screen, handout ou print) :
 
        make style.pdf
+
+Une partie (virtualisation, cloud) :
+
+       make -f Makefile_virtualisation
 
 Copyright et licence
 --------------------
