@@ -1,6 +1,0 @@
-\beamer@endinputifotherversion {3.24pt}
-\select@language {french}
-\beamer@sectionintoc {2}{Virtualisation}{8}{0}{1}
-\beamer@subsectionintoc {2}{1}{Histoire de la virtualisation}{10}{0}{1}
-\beamer@subsectionintoc {2}{2}{Principes g\IeC {\'e}n\IeC {\'e}raux}{13}{0}{1}
-\beamer@subsectionintoc {2}{3}{Comprendre la virtualisation}{19}{0}{1}

@@ -7,12 +7,12 @@ Sont notamment abordés les sujets suivants : la virtualisation de serveur, le c
 Auteurs :
 * Adrien Cunin <adrien.cunin@osones.com>
 * Pierre Freund <pierre.freund@osones.com>
-* Arnaud Morin <arnaud1.morin@orange.com>
+* Arnaud Morin <arnaud.morin@gmail.com>
 
 Installation de LaTeX (Ubuntu)
 ------------------------------
 
-       sudo apt-get install texlive-lang-french texlive
+       sudo apt-get install texlive-lang-french texlive texlive-latex3
 
 Générations des PDFs
 --------------------

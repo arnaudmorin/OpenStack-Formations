@@ -1,9 +1,0 @@
-\beamer@endinputifotherversion {3.24pt}
-\select@language {french}
-\beamer@sectionintoc {2}{Le Cloud : vue d'ensemble}{8}{0}{1}
-\beamer@subsectionintoc {2}{1}{Le Cloud : les concepts}{9}{0}{1}
-\beamer@subsectionintoc {2}{2}{PaaS : Platform as a Service}{16}{0}{1}
-\beamer@subsectionintoc {2}{3}{IaaS : Infrastructure as a Service}{20}{0}{1}
-\beamer@subsectionintoc {2}{4}{Stockage : block, objet, SDS}{28}{0}{1}
-\beamer@subsectionintoc {2}{5}{Orchestrer les ressources de son IaaS}{37}{0}{1}
-\beamer@subsectionintoc {2}{6}{APIs : quel r\IeC {\^o}le ?}{41}{0}{1}
