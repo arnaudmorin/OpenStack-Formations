@@ -40,7 +40,7 @@
   \begin{frame}
     \frametitle{Cloud public ou cloud privé ?}
     \begin{description}
-      \item[Public] fourni par un hébergeur à des clients (AWS, Rackspace Cloud, Azure, etc.)
+      \item[Public] fourni par un hébergeur à des clients (OVH, AWS, Rackspace Cloud, Azure, etc.)
       \item[Privé] plateforme et ressources internes
       \item[Hybride] utilisation de ressources publiques au sein d'un cloud privé
     \end{description}
@@ -56,7 +56,9 @@
     \begin{itemize}
       \item Baisse des coûts par la mutualisation des ressources
       \item Utilisation uniquement des ressources qui sont nécessaires
-      \item À grande échelle, garantie de service
+      \item Va de pair avec l'automatisation du SI, l'agilité
+      \item Donc réduction des délais et reproductibilité
+      \item À grande échelle et/ou en cloud hybride, garantie de service
     \end{itemize}
   \end{frame}
 
@@ -86,7 +88,7 @@
     \begin{itemize}
       \item Amazon OpsWork / Elastic Beanstalk
       \item Google App Engine
-      \item Heroku \pause
+      \item Heroku
       \item OVH (Lamp Stack et Ruby Stack pour developpeurs)\\
       \url{http://www.ovh.com/fr/vps/systeme-exploitation.xml}
     \end{itemize}
@@ -108,16 +110,17 @@
     \begin{itemize}
       \item Service (cloud public) : \textcolor{blue}{AWS}
       \begin{itemize}
-        \item Pionnier du genre (dès 2002)
+        \item Pionnier du genre (dès 2006)\pause
         \item Elastic Compute Cloud (\textcolor{blue}{EC2})
-        \item Elastic Block Storage (\textcolor{blue}{EBS})
-        \item Simple Storage Service (\textcolor{blue}{S3})
+        \item Elastic Block Storage (\textcolor{blue}{EBS})\pause
+        \item Simple Storage Service (\textcolor{blue}{S3})\pause
       \end{itemize}
         \item Logiciels libres permettant le déploiement d'un cloud privé :
       \begin{itemize}
         \item Eucalyptus
         \item CloudStack
-        \item OpenNebula
+        \item Archipel
+        \item OpenNebula\pause
         \item \textbf{OpenStack}
       \end{itemize}
     \end{itemize}
@@ -126,15 +129,17 @@
   \begin{frame}
     \frametitle{Les clouds publics concurrents d'AWS}
     \begin{itemize}
-      \item Google Compute Engine
+      \item Google Compute Platform
       \item Rackspace
       \item HP Cloud
       \item Microsoft Azure
       \item En France
       \begin{itemize}
         \item \textbf{Cloudwatt}
-        \item \textbf{Numergy}
         \item \textbf{Outscale}
+        \item \textbf{OVH}
+        \item \textbf{Ikoula}
+        \item \textbf{Scaleway (Iliad)}
       \end{itemize}
     \end{itemize}
   \end{frame}
@@ -154,16 +159,17 @@
     \begin{itemize}
       \item Images
       \item Instances
-      \item Types d'instance (flavors)
+      \item Types d'instance / gabarits (flavors)
       \item Volumes\pause
       \item Stockage block
       \item Stockage objet\pause
       \item IP flottantes/élastiques\pause
       \item Groupes de sécurité\pause
       \item Paires de clés\pause
+      \item Templates, stacks\pause
       \item API REST\pause
       \item API de metadata et user data
-      \item Cloud-init
+      \item cloud-init, cloud-config
       \note{{\tiny Image : Photo d'une machine virtuelle contenant les informations nécessaires pour lancer une instance. Contient généralement un OS et/ou des applications. C'est un genre de template.\\}}
       \note{{\tiny Instance : Une machine virtuelle lancée depuis une Image. On peut lancer plusieurs instances depuis la même image.\\}}
       \note{{\tiny Flavors : Type d'instance prédéfini, détermine par exemple CPU et RAM. Utile pour positionner l'instance au bon endroit dans le datacenter.\\}}
@@ -209,7 +215,7 @@
       \item Possibilité d'utiliser n'importe quel système de fichiers
       \item Compatible avec toutes les applications legacy
       \item Technos : iSCSI, Fiber Channel, FCoE
-      \note{Samba, NFS, CIFS sont pas des block storage, mais des file storage}
+      \note{Samba, NFS, CIFS ne sont pas des block storage, mais des file storage}
     \end{itemize}
   \end{frame}
 
@@ -236,6 +242,7 @@
       \item Utilisation de commodity hardware
       \item Pas de RAID matériel
       \item Le logiciel est responsable de garantir les données
+      \item Les pannes matérielles sont prises en compte et gérées
     \end{itemize}
   \end{frame}
 
@@ -244,7 +251,7 @@
     \begin{itemize}
       \item Swift fait partie du projet OpenStack et fournit du stockage objet
       \item Ceph fournit du stockage objet, block et FS
-      \item Les deux sont du SDS
+      \item Les deux sont implémentés en SDS\pause
       \item Théorème CAP : on en choisit deux
     \end{itemize}
     \begin{description}[Partition Tolerance]
@@ -276,7 +283,7 @@
       \item Projet totalement parallèle à OpenStack
       \item Supporté par une entreprise (Inktank) récemment rachetée par Red Hat
       \item Fournit d'abord du stockage objet
-      \item L'accès aux données se fait via RADOS : 
+      \item L'accès aux données se fait via RADOS :
       \note{RADOS: reliable autonomic distributed object store\\}
       \begin{itemize}
         \item Accès direct depuis une application avec librados
@@ -297,7 +304,11 @@
     \begin{itemize}
       \item Définir tout une infrastructure dans un seul fichier texte
       \item Être en capacité d'instancier une infrastructure entière en un appel API
-      \item Adapter ses ressources en fonction de ses besoins en temps réel (autoscaling)
+      \item Autoscaling
+      \begin{itemize}
+        \item Adapter ses ressources en fonction de ses besoins en temps réel
+        \item Fonctionnalité incluse dans le composant d'orchestration d'OpenStack
+      \end{itemize}
     \end{itemize}
   \end{frame}
   
@@ -338,7 +349,7 @@ resources:
   \begin{frame}[containsverbatim]
     \frametitle{Exemple concret}
 \begin{verbatim}
-GET /v2.0/networks/network_id
+GET /v2.0/networks/<network_id>
 {
    "network":{
       "status":"ACTIVE",

@@ -24,15 +24,31 @@
         \item Folsom (2012.2)
         \item Grizzly (2013.1)
         \item Havana (2013.2)
-        \item \textbf{Icehouse (2014.1)}\pause
-        \item Novembre 2014 : Juno
+        \item Icehouse (2014.1)
+        \item Juno (2014.2)
+        \item Kilo (2015.1)
+        \item \textbf{Liberty (2015.2)}\pause
+        \item Avril 2016 : Mitaka
       \end{itemize}
     \end{itemize}
   \end{frame}
 
   \begin{frame}
+    \frametitle{Statistiques : Kilo}
+    \begin{itemize}
+      \item 1492 contributeurs
+      \item 169 organisations
+      \item 394 nouvelles fonctionnalités et 7257 bugs corrigés
+      \item 113 drivers/plugins
+      \item 792200 chaines traduites
+    \end{itemize}
+    Source : \url{http://lists.openstack.org/pipermail/foundation-board/2015-April/000050.html}
+  \end{frame}
+
+  \begin{frame}
     \frametitle{Quelques soutiens/contributeurs ...}
     \begin{itemize}
+<<<<<< HEAD
       \item Rackspace et la NASA\pause
       \item Canonical
       \item Red Hat
@@ -43,7 +59,8 @@
       \item Cisco, Juniper\pause
       \item NetApp, VMWare\pause
       \item Yahoo, Bull\pause
-      \item Mais aussi : Mirantis, StackOps, \alert{eNovance}\pause
+      \item Mais aussi : Mirantis, StackOps, eNovance (racheté par Red Hat), DreamHost, Hastexo\pause
+      \item et \textbf{Google} ! (depuis juillet 2015)
     \end{itemize}
     \url{http://www.openstack.org/foundation/companies/}
   \end{frame}
@@ -52,11 +69,12 @@
     \frametitle{... et utilisateurs}
     \begin{itemize}
       \item Tous les contributeurs précédemment cités\pause
-      \item En France : \textbf{CloudWatt} et \textbf{Numergy}\pause
+      \item En France : \textbf{Cloudwatt} et \textbf{Numergy}\pause
       \item Wikimedia
       \item CERN
       \item Paypal
-      \item Comcast\pause
+      \item Comcast
+      \item BMW\pause
       \item Etc. Sans compter les implémentations confidentielles
     \end{itemize}
     \url{http://www.openstack.org/user-stories/}
@@ -72,7 +90,7 @@
         \item OpenStack Image Service - Glance\pause
         \item OpenStack Identity Service - Keystone\pause
         \item OpenStack Dashboard - Horizon\pause
-        \item OpenStack Metering - Ceilometer\pause
+        \item OpenStack Telemetry - Ceilometer\pause
         \item OpenStack Orchestration - Heat\pause
         \item OpenStack Database Service - Trove
     \end{itemize}
@@ -81,17 +99,18 @@
   \begin{frame}
     \frametitle{Les différents sous-projets (2)}
     \begin{itemize}
-      \item Incubating (à jour Icehouse)
+      \item Mais aussi :
       \begin{itemize}
         \item Bare metal (Ironic)
-        \item Queue service (Marconi)
+        \item Queue service (Zaqar)
         \item Data processing (Sahara)
-      \end{itemize}\pause
-      \item Intéressants
-      \begin{itemize}
         \item DNS service (Designate)
-      \end{itemize}
-      \item Autres\pause
+        \item Shared File Systems (Manila)
+        \item Key management (Barbican)
+        \item PaaS (Solum)\pause
+        \item Container (Magnum)\pause
+      \end{itemize}\pause
+      \item Autres
       \begin{itemize}
         \item Oslo
         \item rootwrap : wrapper pour les commandes root utilisé par les projets
@@ -114,33 +133,29 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{Nouveautés de Icehouse}
-    \begin{center}
-      \includegraphics{images/icehouse.png}
-    \end{center}
+    \frametitle{Le nouveau modèle "big tent"}
     \begin{itemize}
-      \item Nova : rolling upgrades
-      \item Nouvelles fonctionnalités disponibles dans Horizon
-      \item Nouveaux drivers dans Neutron
-      \item Nouveaux drivers dans Cinder
-      \item Le nouveau format HOT est recommandé pour les templates Heat
-      \item etc.
-      \item En détails : \url{https://wiki.openstack.org/wiki/ReleaseNotes/Icehouse}
+      \item Évolutions presque totalement implémentées
+      \item Objectif : résoudre les limitations du modèle incubation/intégré
+      \item Inclusion {a priori} de l'ensemble de l'écosystème OpenStack
+      \item \textit{Programs} $\rightarrow$ \textit{Project Teams}
+      \item Disparation des statuts en incubation et intégré
+      \item Utilisation de tags factuels et objectifs
     \end{itemize}
   \end{frame}
 
   \begin{frame}
     \frametitle{Traduction}
     \begin{itemize}
-      \item La question de la traduction est dorénavant prise en compte
+      \item La question de la traduction est dorénavant prise en compte (officialisation de l'équipe \textit{i18n})
       \item Seules certaines parties sont traduites, comme Horizon
       \item La traduction française est aujourd'hui une des plus avancées
-      \item Utilisation de la plateforme Transifex
+      \item Utilisation de la plateforme Transifex (en cours de migration vers l'outil libre Zanata)
     \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \frametitle{Développement du projet}
+    \frametitle{Développement du projet : les principes}
     \begin{itemize}
       \item Open Source
       \note{Licence Apache 2}
@@ -158,9 +173,12 @@
     \begin{itemize}
       \item Ouvert à tous (individuels et entreprises)\pause
       \item Cycle de développement de 6 mois débuté par un (design) summit\pause
-      \item Outils : Launchpad (blueprints, bugs) + Git + GitHub (code)\pause
-      \item Sur chaque commit : peer review (Gerrit) + intégration continue (exécution de différents tests par Jenkins)\pause
-      \item Plateforme de référence et modèle de développement : Ubuntu\pause
+      \item Outils : Launchpad $\rightarrow$ Storyboard (blueprints, bugs) + Git + GitHub (code)\pause
+      \item Sur chaque patch proposé :
+      \begin{itemize}
+        \item Revue de code (peer review) : Gerrit, \url{https://review.openstack.org}
+        \item Intégration continue (continous integration) : Jenkins, Zuul, etc., \url{http://zuul.openstack.org/}
+      \end{itemize}\pause
       \item Développement hyper actif : 17000 commits dans Icehouse (+25\%)\pause
       \item Fin 2012, création d'une entité indépendante de gouvernance : la fondation OpenStack
     \end{itemize}
@@ -170,6 +188,7 @@
     \frametitle{La fondation OpenStack}
     \begin{itemize}
       \item Entité de gouvernance principale du projet
+      \item Représentation juridique du projet
       \item Les membres du board sont issus des entreprises sponsors et élus par les membres individuels
       \item Tout le monde peut devenir membre individuel (gratuitement)
       \item La fondation supporte le projet par différents moyens :
@@ -178,8 +197,8 @@
         \item Infrastructure de développement (serveurs)
         \item Ressources humaines : marketing, release manager, quelques développeurs (principalement sur l'infrastructure)
       \end{itemize}
-      \item 850 organisations à travers le monde
-      \item 9500 membres individuels dans 100 pays
+      \item 500 organisations à travers le monde
+      \item 23000 membres individuels dans 160 pays
     \end{itemize}
   \end{frame}
 
@@ -189,15 +208,25 @@
   %~ \end{frame}
 
   \begin{frame}
+    \frametitle{OpenStack Infra}
+    \begin{itemize}
+      \item Équipe projet en charge de l'infrastructure de développement d'OpenStack
+      \item Travaille comme les équipes de dev d'OpenStack et utilise les mêmes outils
+      \item Résultat : une infrastructure entièrement open source et développée comme tel
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
     \frametitle{Cycle de développement : 6 mois}
     \begin{itemize}
-      \item Le planning est publié, exemple : \url{https://wiki.openstack.org/wiki/Icehouse_Release_Schedule}
+      \item Le planning est publié, exemple : \url{https://wiki.openstack.org/wiki/Kilo_Release_Schedule}
       \item Milestone releases
       \item Freezes : FeatureProposal, Feature, String
       \item RC releases
       \item Stable releases
       \item Ce modèle de cycle de développement a évolué depuis le début du projet
-      \item Cas particulier de Swift
+      \item Cas particulier de Swift et de plus en plus de composants
+      \item Depuis Liberty, chaque composant gère son propre versionnement
     \end{itemize}
   \end{frame}
 
@@ -205,11 +234,25 @@
     \frametitle{Où trouver des informations sur le développement d'OpenStack}
     \begin{itemize}
       \item Principalement sur le wiki : \url{https://wiki.openstack.org}
-      \item Les blueprints et bugs sur Launchpad : \url{https://launchpad.net/openstack}
+      \item Les blueprints et bugs sur Launchpad/StoryBoard : \url{https://launchpad.net/openstack}, \url{https://storyboard.openstack.org}, \url{http://specs.openstack.org/}
       \item Les patchs proposés et leurs reviews sont sur Gerrit : \url{https://review.openstack.org}
+      \item L'état de la CI (entre autres) : \url{http://status.openstack.org}
       \item Le code est disponible dans Git : \url{https://git.openstack.org}
       \item Les sources (tarballs) sont disponibles : \url{http://tarballs.openstack.org/}
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Qui contribue ?}
+    \begin{itemize}
+      \item \textit{Active Technical Contributor}
+      \item ATC : personne ayant au moins une contribution récente dans un projet OpenStack reconnu
+      \item Les ATC sont invités aux summits et ont le droit de vote
+      \item \textit{Core reviewer} : ATC ayant les droits pour valider les patchs dans un projet
+      \item \textit{Project Technical Lead} (PTL) : élu par les ATCs de chaque projet
+      \item Stackalytics fournit des statistiques sur les contributions
+    \end{itemize}
+    \url{http://stackalytics.com/}
   \end{frame}
 
   \begin{frame}
@@ -218,6 +261,7 @@
       \item Forge pour les nouveaux projets en lien avec OpenStack
       \item Ils bénéficient de l'infrastructure du projet OpenStack, mais la séparation reste claire
       \item Les projets démarrent dans Stackforge et peuvent ensuite rejoindre le projet OpenStack
+      \item En train de disparaitre au profit du modèle "big tent"
     \end{itemize}
   \end{frame}
 
@@ -225,10 +269,11 @@
     \frametitle{OpenStack Summit}
     \begin{itemize}
       \item Aux USA jusqu'en 2013
-      \item Aujourd'hui : alternance USA et Asie/Europe
-      \item Quelques centaines au début à 4500 de participants aujourd'hui
+      \item Aujourd'hui : alternance Amérique de Nord et Asie/Europe
+      \item Quelques centaines au début à 4500 participants aujourd'hui
       \item En parallèle : conférence (utilisateurs, décideurs) et Design Summit (développeurs)
       \item Détermine le nom de la release : lieu/ville à proximité du Summit
+      \item \textit{Upstream Training}
     \end{itemize}
   \end{frame}
 
@@ -267,10 +312,10 @@
     \begin{itemize}
       \item Chaque sous-projet est découpé en plusieurs services\pause
       \item Communication entre les services : AMQP (RabbitMQ)\pause
-      \item Base de données : MySQL\pause
-      \item Réutilisation de nombreux composants existants\pause
-      \item OpenVSwitch\pause
-      \item Tout est développé en Python (Django pour Horizon)\pause
+      \item Base de données : relationnelle SQL (MySQL/MariaDB)\pause
+      \item Réseau : OpenVSwitch\pause
+      \item En général : réutilisation de composants existants\pause
+      \item Tout est développé en Python (Django pour la partie web)\pause
       \item APIs supportées : OpenStack et équivalent Amazon\pause
       \item Multi tenancy
     \end{itemize}
@@ -302,22 +347,45 @@
   \begin{frame}
     \frametitle{Ressources}
     \begin{itemize}
-      \item \url{http://docs.openstack.org/}
-      \item \url{https://ask.openstack.org}
-      \item openstack@lists.openstack.org
-      \item \#openstack@Freenode
-      \item \url{http://api.openstack.org/}
-      \item Communauté française :
+      \item Annonces/sécurité : openstack-announce@lists.openstack.org
+      \item Documentation : \url{http://docs.openstack.org/}
+      \item Gouvernance du projet : \url{http://governance.openstack.org/}
+      \item Support :
       \begin{itemize}
-        \item \url{http//openstack.fr/}
+        \item \url{https://ask.openstack.org}
+        \item openstack@lists.openstack.org
+        \item \#openstack@Freenode
+      \end{itemize}
+      \item SDK/APIs : \url{http://developer.openstack.org/}
+      \item Applications : \url{http://apps.openstack.org/}
+      \item Actualités :
+      \begin{itemize}
+        \item Blog officiel : \url{http://www.openstack.org/blog/}
+        \item Planet : \url{http://planet.openstack.org}
+        \item Superuser : \url{http://superuser.openstack.org/}
+        \item OpenStack Community Weekly Newsletter
+      \end{itemize}
+    \item Ressources commerciales : \url{http://www.openstack.org/marketplace/} entre autres
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ressources - Communauté francophone}
+    \includegraphics{images/openstackfr.png}
+    \begin{itemize}
+      \item Site web : \url{http://openstack.fr/}
+      \item Association des utilisateurs francophones d'OpenStack : \url{https://asso.openstack.fr/}
+      \item Meetups : Paris, Rhônes-Alpes, Toulouse, Montréal, ...
+      \item Présence à des événements tels que Solutions Linux
+      \item Canaux de communication :
+      \begin{itemize}
         \item openstack-fr@lists.openstack.org
         \item \#openstack-fr@Freenode
-		\item Association
       \end{itemize}
     \end{itemize}
   \end{frame}
-  
-    \subsection[DevStack]{DevStack : faire tourner rapidement un OpenStack}
+
+  \subsection[DevStack]{DevStack : faire tourner rapidement un OpenStack}
 
   \begin{frame}
     \frametitle{Utilité de DevStack}
@@ -335,7 +403,7 @@
     \begin{itemize}
       \item Un script shell qui fait tout le travail : stack.sh
       \item Un fichier de configuration : local.conf
-      \item Installe toute les dépendances nécessaires (paquets)
+      \item Installe toutes les dépendances nécessaires (paquets)
       \item Clone les dépôts git (branche master par défaut)
       \item Lance tous les composants dans un screen
     \end{itemize}
@@ -366,8 +434,8 @@ SERVICE_TOKEN=a682f596-76f3-11e3-b3b2-e716f9080d50
       \item L'utilisation de Vagrant est conseillée (docker possible avec dockenstack)
     \end{itemize}
   \end{frame}
-  
-    \subsection[Utilisation]{Utiliser OpenStack}
+
+  \subsection[Utilisation]{Utiliser OpenStack}
 
   \begin{frame}
     \frametitle{Le principe}
@@ -406,5 +474,15 @@ SERVICE_TOKEN=a682f596-76f3-11e3-b3b2-e716f9080d50
         \item L'authentification se fait en passant les credentials par paramètres ou variables d'environnement
         \item L'option --debug affiche la communication HTTP
       \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{OpenStack Client}
+    \begin{itemize}
+      \item Client CLI unifié
+      \item Commandes du type \textit{openstack <service> <action>}
+      \item Vise à remplacer à terme les clients spécifiques
+      \item Permet une expérience utilisateur plus homogène
     \end{itemize}
   \end{frame}

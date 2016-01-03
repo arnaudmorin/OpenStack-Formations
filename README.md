@@ -9,6 +9,8 @@ Auteurs :
 * Pierre Freund <pierre.freund@osones.com>
 * Arnaud Morin <arnaud.morin@gmail.com>
 
+[![Build Status](https://travis-ci.org/Osones/OpenStack-Formations.svg?branch=master)](https://travis-ci.org/Osones/OpenStack-Formations)
+
 Installation de LaTeX (Ubuntu)
 ------------------------------
 
@@ -32,7 +34,7 @@ Une partie (virtualisation, cloud) :
 Copyright et licence
 --------------------
 Tous les contenus originaux (Makefile, les fichiers dans latex/) sont :
-* Copyright © 2014 Osones
+* Copyright © 2015 Osones
 * Distribués sous licence Creative Commons BY-SA 4.0.
 
 ![Creative Commons BY-SA](http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
