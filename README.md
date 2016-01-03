@@ -9,8 +9,6 @@ Auteurs :
 * Pierre Freund <pierre.freund@osones.com>
 * Arnaud Morin <arnaud.morin@gmail.com>
 
-[![Build Status](https://travis-ci.org/Osones/OpenStack-Formations.svg?branch=master)](https://travis-ci.org/Osones/OpenStack-Formations)
-
 Installation de LaTeX (Ubuntu)
 ------------------------------
 
