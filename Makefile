@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 # Les morceaux que l'on veut inclure
-PARTS = introduction virtualisation cloud openstack-presentation openstack-deploiement iaas-tirer-partie conclusion
+PARTS = introduction virtualisation cloud openstack
 
 # Par défaut on génère tous les styles : screen, handout et print
-all: screen.pdf handout.pdf print.pdf
+all: full.pdf clean
 
 # Nécessaire pour la suite
 pwd:=$(shell pwd)
@@ -30,7 +30,7 @@ result:=$(pwd)/result
 	pdflatex -output-directory $(result) $(tmp)/$*.tex
 	rm -rf $(tmp)
 	# Liens symboliques
-	ln -sf result/$*.pdf $*.pdf
+	#ln -sf result/$*.pdf $*.pdf
 
 # On ne garde que les PDFs résultants
 clean:

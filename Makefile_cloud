@@ -30,7 +30,7 @@ result:=$(pwd)/result
 	pdflatex -output-directory $(result) $(tmp)/$*.tex
 	rm -rf $(tmp)
 	# Liens symboliques
-	ln -sf result/$*.pdf $*.pdf
+	#ln -sf result/$*.pdf $*.pdf
 
 # On ne garde que les PDFs résultants
 clean:

@@ -5,12 +5,12 @@
   \begin{frame}
     \frametitle{Le cloud, c'est large !}
     \begin{itemize}
-      \item Stockage \pause
-      \item Calcul \pause
-      \item Virtualisation++\pause
-      \item Abstraction du matériel\pause
-      \item Service et facturation à la demande\pause
-      \item \alert<8->{Accès normalisé par des APIs}\pause
+      \item Stockage 
+      \item Calcul 
+      \item Virtualisation++
+      \item Abstraction du matériel
+      \item Service et facturation à la demande
+      \item \alert<8->{Accès normalisé par des APIs}
       \item \alert<9->{Flexibilité, élasticité}
     \end{itemize}
   \end{frame}
@@ -18,20 +18,20 @@
   \begin{frame}
     \frametitle{WaaS : Whatever as a Service}
     \begin{itemize}
-      \item Principalement\pause
+      \item Principalement
       \begin{description}
-        \item[IaaS] \alert<5->{Infrastructure as a Service}\pause
-        \item[PaaS] Platform as a Service\pause
-        \item[SaaS] Software as a Service\pause
+        \item[IaaS] \alert<5->{Infrastructure as a Service}
+        \item[PaaS] Platform as a Service
+        \item[SaaS] Software as a Service
       \end{description}
-      \pause
+      
       \item Mais aussi :
-      \pause
+      
       \begin{itemize}
         \item Database as a Service
         \item Network as a Service
         \item Firewall as a Service
-        \item Load balancing as a Service\pause
+        \item Load balancing as a Service
         \item Whatever as a Service
       \end{itemize}
     \end{itemize}
@@ -110,17 +110,17 @@
     \begin{itemize}
       \item Service (cloud public) : \textcolor{blue}{AWS}
       \begin{itemize}
-        \item Pionnier du genre (dès 2006)\pause
+        \item Pionnier du genre (dès 2006)
         \item Elastic Compute Cloud (\textcolor{blue}{EC2})
-        \item Elastic Block Storage (\textcolor{blue}{EBS})\pause
-        \item Simple Storage Service (\textcolor{blue}{S3})\pause
+        \item Elastic Block Storage (\textcolor{blue}{EBS})
+        \item Simple Storage Service (\textcolor{blue}{S3})
       \end{itemize}
         \item Logiciels libres permettant le déploiement d'un cloud privé :
       \begin{itemize}
         \item Eucalyptus
         \item CloudStack
         \item Archipel
-        \item OpenNebula\pause
+        \item OpenNebula
         \item \textbf{OpenStack}
       \end{itemize}
     \end{itemize}
@@ -160,14 +160,14 @@
       \item Images
       \item Instances
       \item Types d'instance / gabarits (flavors)
-      \item Volumes\pause
+      \item Volumes
       \item Stockage block
-      \item Stockage objet\pause
-      \item IP flottantes/élastiques\pause
-      \item Groupes de sécurité\pause
-      \item Paires de clés\pause
-      \item Templates, stacks\pause
-      \item API REST\pause
+      \item Stockage objet
+      \item IP flottantes/élastiques
+      \item Groupes de sécurité
+      \item Paires de clés
+      \item Templates, stacks
+      \item API REST
       \item API de metadata et user data
       \item cloud-init, cloud-config
       \note{{\tiny Image : Photo d'une machine virtuelle contenant les informations nécessaires pour lancer une instance. Contient généralement un OS et/ou des applications. C'est un genre de template.\\}}
@@ -251,7 +251,7 @@
     \begin{itemize}
       \item Swift fait partie du projet OpenStack et fournit du stockage objet
       \item Ceph fournit du stockage objet, block et FS
-      \item Les deux sont implémentés en SDS\pause
+      \item Les deux sont implémentés en SDS
       \item Théorème CAP : on en choisit deux
     \end{itemize}
     \begin{description}[Partition Tolerance]
@@ -269,7 +269,7 @@
   \begin{frame}
   \frametitle{Swift}
     \begin{itemize}
-      \item Swift est un projet OpenStack
+      \item Swift est un module d'OpenStack
       \item Le projet est né chez Rackspace avant la création d'OpenStack
       \item Swift est en production chez Rackspace depuis lors
       \item C'est le composant le plus mature d'OpenStack
