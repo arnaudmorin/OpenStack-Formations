@@ -12,7 +12,7 @@ Auteurs :
 Installation de LaTeX (Ubuntu)
 ------------------------------
 
-       sudo apt-get install texlive-lang-french texlive texlive-latex3
+       sudo apt-get install texlive-lang-french texlive texlive-latex3 git make
 
 Générations des PDFs
 --------------------
